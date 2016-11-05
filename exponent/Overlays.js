@@ -84,7 +84,7 @@ class Overlays extends React.Component {
             key={index}
             center={dataObj}
             radius={20}
-            fillColor="rgb(66, 244, 137, .30)"
+            fillColor="rgb(66, 244, 137)"
             strokeColor="rgb(244, 86, 66)"
           /> 
         )

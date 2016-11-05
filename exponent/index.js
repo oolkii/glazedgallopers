@@ -148,6 +148,7 @@ class App extends React.Component {
         }
       })
       .then(function(jsonRoute) {
+        setDestinationSync(true);
         let wayPointData = jsonRoute.data.waypoints;
         console.log('WAYPOINT DATA', wayPointData)
         wayPointData = wayPointData.map(function(waypoint) {
@@ -155,7 +156,6 @@ class App extends React.Component {
           return newWP
         })
         context.setState({safeRoute: wayPointData});
-        setDestinationSync(true);
       }).catch(function(err) {
         console.log('ERROR :', err)
       })
@@ -223,7 +223,7 @@ class App extends React.Component {
       );
     } 
 
-    if(inputView === 'destination') {
+    if(inputView === 'destination' && currAddress) {
       console.log('INPUT VIEW DESTINATION')
       let handleUserInput = this.handleUserInput('destination')
       let handleUserCoords = this.handleUserCoords('destination')
